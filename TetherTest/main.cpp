@@ -35,7 +35,7 @@ int main()
 
     tether_ptr->resolve_hooker(); //resolve all hookers.
     tether_ptr->resolve_tether(); //resolve all signals.
-    std::cout <<  "everithing is resolved..." << std::endl;
+    std::cout <<  "everything is resolved..." << std::endl;
 
     sig(tether_ptr->get_state()); //not connected
     sig2(tether_ptr->get_state()); //not connected
@@ -77,7 +77,7 @@ int main()
     sig3(tether_ptr->get_state()); //connected
     std::cout << "[5] current value is " << tether_ptr->get_state() << std::endl;
 
-    tether_ptr->make_hooker<TestHooker>(hooker); //reconnect a hook
+    tether_ptr->make_hooker<TestHooker>(hooker); //reconnect a hooker
     std::cout << "a hooker is reconnected..." << std::endl;
 
     sig(tether_ptr->get_state()); //connected
