@@ -43,10 +43,10 @@ int main()
 
     TetherSig<int> sig3; //new sig
 
-    const auto tether_id = tether_ptr->make_tether(sig); //keep an id of tether.
+    const auto sig_id = tether_ptr->make_tether(sig); //keep an id of sig.
     tether_ptr->make_tether(sig3);
 
-    const auto hook_id = tether_ptr->make_hooker<TestHooker>(hooker); //keep an id of hooker.
+    const auto hooker_id = tether_ptr->make_hooker<TestHooker>(hooker); //keep an id of hooker.
     std::cout << "sig and sig3 are reconnected..." << std::endl;
 
     std::cout << "an old sig works correctly after reconnecting..." << std::endl;
@@ -57,7 +57,7 @@ int main()
 
     std::cout << "[3] current value is " << tether_ptr->get_state() << std::endl;
 
-    tether_ptr->cut_tether(tether_id); //cut a specific tether
+    tether_ptr->cut_tether(sig_id); //cut a specific sig 
     std::cout << "sig is cut..." << std::endl;
 
     sig(tether_ptr->get_state()); //not connected
@@ -69,7 +69,7 @@ int main()
     tether_ptr->make_tether(sig2);
     std::cout << "then all signals are reconnected..." << std::endl;
 
-    tether_ptr->cut_hooker(hook_id); //cut a specific hook
+    tether_ptr->cut_hooker(hooker_id); //cut a specific hooker
     std::cout << "but a hooker is not connected..." << std::endl;
 
     sig(tether_ptr->get_state()); //connected
