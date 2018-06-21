@@ -1,6 +1,4 @@
 # tether
-
-## About
 tether is a specific formed signals and slots system based on Boost.Signals2.
 Basic elements are TetherSig, Tether, Hooker. Tether keeps a value and only a connected TetherSig can update the value. Hooker hooks value. 
 It looks like:
